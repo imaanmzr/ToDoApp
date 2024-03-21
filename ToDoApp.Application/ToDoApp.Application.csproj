@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Category\Commands\CreateCategory\" />
+    <Folder Include="Features\Category\Commands\DeleteCategory\" />
+    <Folder Include="Features\Category\Commands\UpdateCategory\" />
+    <Folder Include="Features\Category\Queries\GetAllCategories\" />
+    <Folder Include="Features\Category\Queries\GetCategoryById\" />
+    <Folder Include="Features\Category\Queries\SearchCategories\" />
+    <Folder Include="Features\User\Commands\CreateUser\" />
+    <Folder Include="Features\User\Commands\DeleteUser\" />
+    <Folder Include="Features\User\Commands\UpdateUser\" />
+    <Folder Include="Features\User\Queries\GetAllUsers\" />
+    <Folder Include="Features\User\Queries\GetUserById\" />
+    <Folder Include="Features\User\Queries\SearchUsers\" />
+    <Folder Include="Features\Task\Commands\CreateTask\" />
+    <Folder Include="Features\Task\Commands\DeleteTask\" />
+    <Folder Include="Features\Task\Commands\UpdateTask\" />
+    <Folder Include="Features\Task\Queries\GetAllTasks\" />
+    <Folder Include="Features\Task\Queries\GetTaskById\" />
+    <Folder Include="Features\Task\Queries\SearchTasks\" />
+  </ItemGroup>
+
+</Project>
