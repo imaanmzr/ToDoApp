@@ -1,26 +1,20 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ToDoApp.Core.Common;
 
-namespace ToDoApp.Core.Entities
+namespace ToDoApp.Application.Features.Task.Commands.CreateTask
 {
-	public class Task : BaseEntity
+	public class CreateTaskCommand : IRequest<int>
 	{
-		public string? Title { get; private set; }
-		public string? Description { get; private set; }
+		public string Title { get; private set; } = string.Empty;
+		public string Description { get; private set; } = string.Empty;
 		public DateTime CreatedAt { get; private set; }
 		public DateTime UpdatedAt { get; private set; }
 		public DateTime DueDate { get; private set; }
 		public bool IsCompleted { get; private set; }
 		public int CategoryId { get; private set; }
-
-
-
-		// Navigation properties
-		public virtual Category Category { get; set; }
-
 	}
 }

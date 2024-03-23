@@ -19,12 +19,16 @@
     <Folder Include="Features\User\Queries\GetAllUsers\" />
     <Folder Include="Features\User\Queries\GetUserById\" />
     <Folder Include="Features\User\Queries\SearchUsers\" />
-    <Folder Include="Features\Task\Commands\CreateTask\" />
     <Folder Include="Features\Task\Commands\DeleteTask\" />
     <Folder Include="Features\Task\Commands\UpdateTask\" />
     <Folder Include="Features\Task\Queries\GetAllTasks\" />
     <Folder Include="Features\Task\Queries\GetTaskById\" />
     <Folder Include="Features\Task\Queries\SearchTasks\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="MediatR" Version="12.2.0" />
   </ItemGroup>
 
 </Project>
