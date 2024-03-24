@@ -15,15 +15,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{62DD833F-9081-
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{E57EE46B-7EEE-4A27-B66D-85504D06E4B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.Core", "ToDoApp.Core\ToDoApp.Core.csproj", "{153FA6C3-3ECD-403A-BE57-D8F13921D836}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoApp.Domain", "ToDoApp.Core\ToDoApp.Domain.csproj", "{153FA6C3-3ECD-403A-BE57-D8F13921D836}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.Application", "ToDoApp.Application\ToDoApp.Application.csproj", "{30280100-89EA-4E86-A1A3-03CC95A9FAF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoApp.Application", "ToDoApp.Application\ToDoApp.Application.csproj", "{30280100-89EA-4E86-A1A3-03CC95A9FAF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.Infrastructure", "ToDoApp.Infrastructure\ToDoApp.Infrastructure.csproj", "{2968EF2B-FF36-4990-A218-993D9349AD89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoApp.Infrastructure", "ToDoApp.Infrastructure\ToDoApp.Infrastructure.csproj", "{2968EF2B-FF36-4990-A218-993D9349AD89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.Persistence", "ToDoApp.Persistence\ToDoApp.Persistence.csproj", "{8E2EDCCB-5977-4EDE-8685-ABEDEE9B4786}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoApp.Persistence", "ToDoApp.Persistence\ToDoApp.Persistence.csproj", "{8E2EDCCB-5977-4EDE-8685-ABEDEE9B4786}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.Api", "ToDoApp.Api\ToDoApp.Api.csproj", "{B86662E3-E730-4395-BC49-10C3DE0D8B94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoApp.Api", "ToDoApp.Api\ToDoApp.Api.csproj", "{B86662E3-E730-4395-BC49-10C3DE0D8B94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

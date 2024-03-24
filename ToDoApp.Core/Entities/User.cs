@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ToDoApp.Core.Common;
+using ToDoApp.Domain.Common;
 
-namespace ToDoApp.Core.Entities
+namespace ToDoApp.Domain.Entities
 {
 	public class User : BaseEntity
 	{
@@ -13,12 +13,11 @@ namespace ToDoApp.Core.Entities
 		public string? LastName { get; private set; }
 		public string? Email { get; private set; }
 		public string PasswordHash { get; private set; }
-		public DateTime CreatedAt { get; private set; }
-		public DateTime UpdatedAt { get; private set; }
+
 
 
 		// Navigation properties
-		public ICollection<Task> Tasks { get; set; }
+		public ICollection<UserTask> Tasks { get; set; }
 
 	}
 }

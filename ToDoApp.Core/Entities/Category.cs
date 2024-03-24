@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ToDoApp.Core.Common;
+using ToDoApp.Domain.Common;
 
-namespace ToDoApp.Core.Entities
+namespace ToDoApp.Domain.Entities
 {
 	public class Category : BaseEntity
 	{
@@ -15,7 +15,7 @@ namespace ToDoApp.Core.Entities
 
 
 		// Navigation properties
-		public ICollection<Task> Tasks { get; set; } 
+		public ICollection<UserTask> Tasks { get; set; } 
 
 
 	}

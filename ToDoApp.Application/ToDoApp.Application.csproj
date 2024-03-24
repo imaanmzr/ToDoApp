@@ -31,4 +31,8 @@
     <PackageReference Include="MediatR" Version="12.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ToDoApp.Core\ToDoApp.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ToDoApp.Core.Common;
+using ToDoApp.Domain.Common;
 
-namespace ToDoApp.Core.Entities
+namespace ToDoApp.Domain.Entities
 {
-	public class Task : BaseEntity
+	public class UserTask : BaseEntity
 	{
 		public string? Title { get; private set; }
 		public string? Description { get; private set; }
-		public DateTime CreatedAt { get; private set; }
-		public DateTime UpdatedAt { get; private set; }
 		public DateTime DueDate { get; private set; }
 		public bool IsCompleted { get; private set; }
 		public int CategoryId { get; private set; }

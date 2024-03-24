@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ToDoApp.Application.Features.Task.Commands.CreateTask
 {
-	public class CreateTaskCommandValidator
+	public class CreateUserTaskCommandValidator
 	{
 	}
 }

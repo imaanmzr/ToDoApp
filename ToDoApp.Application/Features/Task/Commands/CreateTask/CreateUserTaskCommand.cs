@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ToDoApp.Application.Features.Task.Commands.CreateTask
 {
-	public class CreateTaskCommand : IRequest<int>
+	public class CreateUserTaskCommand : IRequest<int>
 	{
 		public string Title { get; private set; } = string.Empty;
 		public string Description { get; private set; } = string.Empty;
@@ -18,3 +18,5 @@ namespace ToDoApp.Application.Features.Task.Commands.CreateTask
 		public int CategoryId { get; private set; }
 	}
 }
+
+
