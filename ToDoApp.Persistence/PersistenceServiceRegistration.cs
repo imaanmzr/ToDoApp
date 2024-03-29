@@ -18,9 +18,9 @@ namespace ToDoApp.Persistence
 		{
 			services.AddDbContext<ToDoDbContext>(options =>
 			{
-				options.UseSqlServer(configuration.GetConnectionString("ToDoDatabaseConnectionString"));
+				options.UseSqlServer(configuration.GetConnectionString("ToDoAppConnectionString"));
 			});
-
+			//Registering repository services
 			services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 			services.AddScoped(typeof(IUserTaskRepository), typeof(UserTaskRepository));
 			services.AddScoped(typeof(IUserRepository), typeof(UserRepository));

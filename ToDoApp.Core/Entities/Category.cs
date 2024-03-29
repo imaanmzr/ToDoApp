@@ -10,12 +10,12 @@ namespace ToDoApp.Domain.Entities
 	public class Category : BaseEntity
 	{
 
-		public string? Name { get; private set; }
-		public string? Description { get; private set; }
+		public string? Name { get; set; }
+		public string? Description { get; set; }
 
 
 		// Navigation properties
-		public ICollection<UserTask> Tasks { get; set; } 
+		public ICollection<UserTask> UserTasks { get; set; } 
 
 
 	}

@@ -19,10 +19,6 @@
     <Folder Include="Features\User\Queries\GetAllUsers\" />
     <Folder Include="Features\User\Queries\GetUserById\" />
     <Folder Include="Features\User\Queries\SearchUsers\" />
-    <Folder Include="Features\UserTask\Commands\DeleteUserTask\" />
-    <Folder Include="Features\UserTask\Commands\UpdateUserTask\" />
-    <Folder Include="Features\UserTask\Queries\GetAllUserTasks\" />
-    <Folder Include="Features\UserTask\Queries\GetUserTaskById\" />
     <Folder Include="Features\UserTask\Queries\SearchUserTasks\" />
   </ItemGroup>
 

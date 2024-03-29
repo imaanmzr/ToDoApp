@@ -9,15 +9,15 @@ namespace ToDoApp.Domain.Entities
 {
 	public class User : BaseEntity
 	{
-		public string? FirstName { get; private set; }
-		public string? LastName { get; private set; }
-		public string? Email { get; private set; }
-		public string PasswordHash { get; private set; }
+		public string? FirstName { get; set; }
+		public string? LastName { get; set; }
+		public string? Email { get; set; }
+		public string PasswordHash { get; set; }
 
 
 
 		// Navigation properties
-		public ICollection<UserTask> Tasks { get; set; }
+		public ICollection<UserTask> UserTasks { get; set; }
 
 	}
 }
