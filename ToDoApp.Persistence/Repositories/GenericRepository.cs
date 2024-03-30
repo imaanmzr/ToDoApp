@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,36 +12,36 @@ namespace ToDoApp.Persistence.Repositories
 {
 	public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
 	{
-		private readonly ToDoDbContext db;
+		protected readonly ToDoDbContext db;
 
 		public GenericRepository(ToDoDbContext db)
         {
 			this.db = db;
 		}
-
-        public Task CreateAsync(T entity)
+		public async Task<IReadOnlyList<T>> GetAllAsync()
 		{
-			throw new NotImplementedException();
+			return await db.Set<T>().AsNoTracking().ToListAsync();
 		}
 
-		public Task DeleteAsync(T entity)
+		public async Task<T> GetByIdAsync(int id)
 		{
-			throw new NotImplementedException();
+			return await db.Set<T>().AsNoTracking().FirstOrDefaultAsync(x=>x.Id == id);
+		}
+		public async Task CreateAsync(T entity)
+		{
+			await db.AddAsync(entity);
+			await db.SaveChangesAsync();
+		}
+		public async Task UpdateAsync(T entity)
+		{
+			db.Entry(entity).State = EntityState.Modified;
+			await db.SaveChangesAsync();
 		}
 
-		public Task<IReadOnlyList<T>> GetAllAsync()
+		public async Task DeleteAsync(T entity)
 		{
-			throw new NotImplementedException();
-		}
-
-		public Task<T> GetByIdAsync(int id)
-		{
-			throw new NotImplementedException();
-		}
-
-		public Task UpdateAsync(T entity)
-		{
-			throw new NotImplementedException();
+			db.Remove(entity);
+			await db.SaveChangesAsync();
 		}
 	}
 }
