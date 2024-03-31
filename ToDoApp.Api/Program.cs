@@ -1,4 +1,5 @@
 using Microsoft.Extensions.Configuration;
+using ToDoApp.Api.Middlewares;
 using ToDoApp.Application;
 using ToDoApp.Domain.Contracts.Repositories;
 using ToDoApp.Infrastructure;
@@ -17,8 +18,8 @@ builder.Services.AddApplicationServices();
 builder.Services.AddCors(options =>
 {
 	options.AddPolicy("all", builder => builder.AllowAnyOrigin()
-											  .AllowAnyHeader()
-											  .AllowAnyMethod());
+											   .AllowAnyHeader()
+											   .AllowAnyMethod());
 });
 
 builder.Services.AddControllers();
@@ -29,6 +30,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

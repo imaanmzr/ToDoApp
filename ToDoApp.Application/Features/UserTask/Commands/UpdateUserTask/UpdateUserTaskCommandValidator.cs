@@ -41,7 +41,7 @@ namespace ToDoApp.Application.Features.UserTask.Commands.UpdateUserTask
 			var userTask = await userTaskRepository.GetByIdAsync(id);
 			if (userTask == null)
 			{
-				throw new NotFoundException("Task Not Found", userTask);
+				throw new NotFoundException("Task", userTask);
 			}
 			return userTask != null;
 		}

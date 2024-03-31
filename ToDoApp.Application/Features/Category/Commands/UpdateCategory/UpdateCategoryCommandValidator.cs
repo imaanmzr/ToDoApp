@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ToDoApp.Application.Exceptions;
 using ToDoApp.Application.Features.Category.Commands.CreateCategory;
 using ToDoApp.Domain.Contracts.Repositories;
 
@@ -38,6 +39,10 @@ namespace ToDoApp.Application.Features.Category.Commands.UpdateCategory
 		private async Task<bool> CategoryMustExist(int id, CancellationToken token)
 		{
 			var category = await categoryRepository.GetByIdAsync(id);
+			if (category == null)
+			{
+				throw new NotFoundException("Category", category);
+			}
 			return category != null;
 		}
 

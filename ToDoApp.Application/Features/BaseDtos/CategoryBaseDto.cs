@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ToDoApp.Application.Features.BaseDtos
 {
-	public class CategoryBaseDto
+	public abstract class CategoryBaseDto
 	{
 		public int Id { get; set; }
 		public string? Name { get; set; }

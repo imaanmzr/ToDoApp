@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ToDoApp.Application.Features.BaseDtos
 {
-    public class UserTaskBaseDto
+    public abstract class UserTaskBaseDto
     {
         public string Title { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
