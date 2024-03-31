@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ToDoApp.Application.Exceptions;
 using ToDoApp.Application.Features.UserTask.Commands.CreateTask;
 using ToDoApp.Domain.Contracts.Repositories;
 
@@ -32,19 +33,27 @@ namespace ToDoApp.Application.Features.UserTask.Commands.UpdateUserTask
 			RuleFor(p => p)
 				.MustAsync(IsUserTaskUnique);
 
-
 			this.userTaskRepository = userTaskRepository;
 		}
 
 		private async Task<bool> UserTaskMustExist(int id, CancellationToken token)
 		{
 			var userTask = await userTaskRepository.GetByIdAsync(id);
+			if (userTask == null)
+			{
+				throw new NotFoundException("Task Not Found", userTask);
+			}
 			return userTask != null;
 		}
 
 		private async Task<bool> IsUserTaskUnique(UpdateUserTaskCommand command, CancellationToken token)
 		{
-			return await userTaskRepository.IsUserTaskUnique(command.Title);
+			var userTaskExists = await userTaskRepository.IsUserTaskExists(command.Title);
+			if (userTaskExists)
+			{
+				throw new BadRequestException("Task already exists");
+			}
+			return true;
 		}
 	}
 }

@@ -5,11 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ToDoApp.Application.Features.UserTask.Queries.GetUserTaskById;
 using ToDoApp.Domain.Entities;
 
 namespace ToDoApp.Persistence.Configuations
 {
-	public class CategoryConfiguration: IEntityTypeConfiguration<Category>
+	public class CategoryConfiguration : IEntityTypeConfiguration<Category>
 	{
 		public void Configure(EntityTypeBuilder<Category> builder)
 		{
@@ -30,7 +31,7 @@ namespace ToDoApp.Persistence.Configuations
 			builder.HasMany(c => c.UserTasks)
 								.WithOne(ut => ut.Category)
 								.HasForeignKey(ut => ut.CategoryId);
-				
+
 
 			builder.HasData(
 							new Category
@@ -39,7 +40,7 @@ namespace ToDoApp.Persistence.Configuations
 								DateCreated = DateTime.Now,
 								DateModified = DateTime.Now,
 								Description = "Category",
-								Name = "Sleep"
+								Name = "Sleep",
 							}
 							);
 		}

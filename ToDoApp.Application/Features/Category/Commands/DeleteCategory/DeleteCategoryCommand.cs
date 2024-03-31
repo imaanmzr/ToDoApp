@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ToDoApp.Application.Features.UserTask.Queries.GetUserTaskById
+namespace ToDoApp.Application.Features.Category.Commands.DeleteCategory
 {
-	public record GetUserTaskByIdQuery : IRequest<GetUserTaskByIdDto>
+	public class DeleteCategoryCommand : IRequest<Unit>
 	{
 		public int Id { get; set; }
 	}

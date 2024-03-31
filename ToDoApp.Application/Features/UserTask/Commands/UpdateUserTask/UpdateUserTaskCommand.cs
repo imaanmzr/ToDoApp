@@ -13,7 +13,9 @@ namespace ToDoApp.Application.Features.UserTask.Commands.UpdateUserTask
 		public string Title { get; set; } = string.Empty;
 		public string Description { get; set; } = string.Empty;
 		public DateTime DueDate { get; set; }
-		public bool IsCompleted { get; set; }
+		public bool IsCompleted { get; set; } = false;
 		public int CategoryId { get; set; }
+		public int UserId { get; set; }
+
 	}
 }

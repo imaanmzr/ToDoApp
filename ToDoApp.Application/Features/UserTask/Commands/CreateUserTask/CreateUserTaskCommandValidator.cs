@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ToDoApp.Application.Exceptions;
 using ToDoApp.Domain.Contracts.Repositories;
 
 namespace ToDoApp.Application.Features.UserTask.Commands.CreateTask
@@ -14,6 +15,9 @@ namespace ToDoApp.Application.Features.UserTask.Commands.CreateTask
 
 		public CreateUserTaskCommandValidator(IUserTaskRepository userTaskRepository)
 		{
+			RuleFor(p => p)
+				.MustAsync(IsUserTaskUnique);
+
 			RuleFor(p => p.Title)
 				.NotEmpty().WithMessage("{PropertyName} cannot be empty")
 				.NotNull()
@@ -24,10 +28,6 @@ namespace ToDoApp.Application.Features.UserTask.Commands.CreateTask
 				.MinimumLength(2).WithMessage("{PropertyName} minimum length is 2 characters")
 				.MaximumLength(500).WithMessage("{PropertyName} maximum length is 500 characters");
 
-			RuleFor(p => p)
-				.MustAsync(IsUserTaskUnique)
-				.WithMessage("Task already exists");
-
 
 			this.userTaskRepository = userTaskRepository;
 		}
@@ -35,7 +35,12 @@ namespace ToDoApp.Application.Features.UserTask.Commands.CreateTask
 
 		private async Task<bool> IsUserTaskUnique(CreateUserTaskCommand command, CancellationToken token)
 		{
-			return await userTaskRepository.IsUserTaskUnique(command.Title);
+			var userTaskExists = await userTaskRepository.IsUserTaskExists(command.Title);
+			if (userTaskExists)
+			{
+				throw new BadRequestException("Task already exists");
+			}
+			return true;
 		}
 	}
 }

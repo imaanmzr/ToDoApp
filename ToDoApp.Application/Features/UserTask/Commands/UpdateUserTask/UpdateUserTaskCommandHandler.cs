@@ -32,7 +32,7 @@ namespace ToDoApp.Application.Features.UserTask.Commands.UpdateUserTask
 
 			if (validationResult.Errors.Any())
 			{
-				logger.LogWarning("Validation errors in update request for {0} - {1}", nameof(UserTask), request.Id);
+				logger.LogWarning("Validation errors in update request for {0} - {1}", nameof(Domain.Entities.UserTask), request.Id);
 				throw new BadRequestException("Invalid Task", validationResult);
 			}
 

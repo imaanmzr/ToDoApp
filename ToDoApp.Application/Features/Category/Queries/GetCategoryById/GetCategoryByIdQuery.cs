@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ToDoApp.Application.Features.UserTask.Queries.GetUserTaskById
+namespace ToDoApp.Application.Features.Category.Queries.GetCategoryById
 {
-	public record GetUserTaskByIdQuery : IRequest<GetUserTaskByIdDto>
+	public record GetCategoryByIdQuery : IRequest<GetCategoryByIdDto>
 	{
 		public int Id { get; set; }
 	}

@@ -16,17 +16,10 @@ namespace ToDoApp.Application.MappingProfiles
 	{
 		public UserTaskMappingProfile()
 		{
-			CreateMap<CreateUserTaskCommand, UserTask>();
-			CreateMap<UpdateUserTaskCommand, UserTask>();
 			CreateMap<GetAllUserTasksDto, UserTask>().ReverseMap();
 			CreateMap<UserTask, GetUserTaskByIdDto>();
-
-
-
-
-
-
-
+			CreateMap<CreateUserTaskCommand, UserTask>();
+			CreateMap<UpdateUserTaskCommand, UserTask>();
 		}
 
 	}

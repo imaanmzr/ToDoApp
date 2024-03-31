@@ -12,7 +12,7 @@ namespace ToDoApp.Persistence.Repositories
 
 		}
 
-		public async Task<bool> IsUserTaskUnique(string title)
+		public async Task<bool> IsUserTaskExists(string title)
 		{
 			return await db.UserTasks.AnyAsync(q=>q.Title == title);
 		}

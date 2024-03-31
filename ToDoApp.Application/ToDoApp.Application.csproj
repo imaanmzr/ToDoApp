@@ -7,11 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Category\Commands\CreateCategory\" />
-    <Folder Include="Features\Category\Commands\DeleteCategory\" />
-    <Folder Include="Features\Category\Commands\UpdateCategory\" />
-    <Folder Include="Features\Category\Queries\GetAllCategories\" />
-    <Folder Include="Features\Category\Queries\GetCategoryById\" />
     <Folder Include="Features\Category\Queries\SearchCategories\" />
     <Folder Include="Features\User\Commands\CreateUser\" />
     <Folder Include="Features\User\Commands\DeleteUser\" />

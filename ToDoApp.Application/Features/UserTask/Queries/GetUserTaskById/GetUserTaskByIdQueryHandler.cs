@@ -23,11 +23,11 @@ namespace ToDoApp.Application.Features.UserTask.Queries.GetUserTaskById
 		}
         public async Task<GetUserTaskByIdDto> Handle(GetUserTaskByIdQuery request, CancellationToken cancellationToken)
 		{
-			var userTaskById = await userTaskRepository.GetByIdAsync(request.id);
+			var userTaskById = await userTaskRepository.GetByIdAsync(request.Id);
 
 			if (userTaskById == null)
 			{
-				throw new NotFoundException(nameof(Domain.Entities.UserTask),request.id);
+				throw new NotFoundException(nameof(Domain.Entities.UserTask),request.Id);
 			}
 
 			var userTaskByIdDto = mapper.Map<GetUserTaskByIdDto>(userTaskById);

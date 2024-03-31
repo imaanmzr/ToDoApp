@@ -5,6 +5,6 @@ namespace ToDoApp.Domain.Contracts.Repositories
 {
 	public interface IUserTaskRepository : IGenericRepository<UserTask>
 	{
-		Task<bool> IsUserTaskUnique(string title);
+		Task<bool> IsUserTaskExists(string title);
 	}
 }

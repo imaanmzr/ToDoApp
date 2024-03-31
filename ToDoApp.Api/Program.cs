@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using ToDoApp.Application;
 using ToDoApp.Domain.Contracts.Repositories;
+using ToDoApp.Infrastructure;
 using ToDoApp.Persistence;
 using ToDoApp.Persistence.DatabaseContext;
 using ToDoApp.Persistence.Repositories;
@@ -9,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddPersistenceServices(builder.Configuration);
+builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddApplicationServices();
 
 
