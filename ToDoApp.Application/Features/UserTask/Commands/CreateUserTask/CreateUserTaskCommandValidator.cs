@@ -28,12 +28,6 @@ namespace ToDoApp.Application.Features.UserTask.Commands.CreateTask
 				.MinimumLength(2).WithMessage("{PropertyName} minimum length is 2 characters")
 				.MaximumLength(500).WithMessage("{PropertyName} maximum length is 500 characters");
 
-			RuleFor(p => p.DueDate)
-				.GreaterThan(DateTime.Now)
-				.WithMessage("{PropertyName} should be greater than present time");
-
-
-
 			this.userTaskRepository = userTaskRepository;
 		}
 

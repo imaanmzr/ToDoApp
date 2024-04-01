@@ -1,0 +1,64 @@
+﻿@page "/tasks/"
+<h3>Tasks</h3>
+
+<div class="m-2 d-flex justify-content-end">
+	<button @onclick="CreateUserTask" class="btn btn-success">Add Task</button>
+</div>
+
+@if (!string.IsNullOrEmpty(Message))
+{
+	<div class="alert alert-danger">
+		@Message
+	</div>
+}
+
+
+@if (UserTasks == null)
+{
+	<p>Loading Tasks...</p>
+}
+else
+{
+	<table class="table">
+		<thead>
+			<tr>
+				<th>
+					Title
+				</th>
+				<th>
+					Description
+				</th>
+				<th>
+					Due Date
+				</th>
+				<th>
+					Done
+				</th>
+				<th>
+					Category
+				</th>
+				<th>
+
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+				@foreach (var userTask in UserTasks)
+				{
+				<tr>
+					<td>@userTask.Title</td>
+					<td>@userTask.Description</td>
+					<td>@userTask.DueDate</td>
+					<td>@userTask.IsCompleted</td>
+					<td>@userTask.CategoryId</td>
+					<td>
+						<button @onclick="@(()=>EditUserTask(userTask.Id))" class="btn btn-warning">Edit</button>
+						<button @onclick="@(()=>DetailsUserTask(userTask.Id))" class="btn btn-primary">Details</button>
+						<button @onclick="@(()=>DeleteUserTask(userTask.Id))" class="btn btn-danger">Delete</button>
+					</td>
+				</tr>
+				}
+		</tbody>
+	</table>
+}
