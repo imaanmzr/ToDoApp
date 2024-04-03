@@ -29,11 +29,6 @@ namespace ToDoApp.Persistence.Configuations
 			builder.Property(p => p.Description)
 								 .HasMaxLength(500);
 
-			builder.HasOne(ut => ut.User)
-								 .WithMany(u => u.UserTasks)
-								 .HasForeignKey(ut => ut.UserId)
-								 .OnDelete(DeleteBehavior.Restrict);
-
 			builder.HasOne(ut => ut.Category)
 								 .WithMany(c => c.UserTasks)
 								 .HasForeignKey(ut => ut.CategoryId);
@@ -50,7 +45,6 @@ namespace ToDoApp.Persistence.Configuations
 						   		CategoryId = 1,
 						   		DateCreated = DateTime.UtcNow,
 						   		IsCompleted = true,
-						   		UserId = 1
 						   }
 						   );
 		}

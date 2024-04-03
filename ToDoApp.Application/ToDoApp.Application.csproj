@@ -8,12 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Features\Category\Queries\SearchCategories\" />
-    <Folder Include="Features\User\Commands\CreateUser\" />
-    <Folder Include="Features\User\Commands\DeleteUser\" />
-    <Folder Include="Features\User\Commands\UpdateUser\" />
-    <Folder Include="Features\User\Queries\GetAllUsers\" />
-    <Folder Include="Features\User\Queries\GetUserById\" />
-    <Folder Include="Features\User\Queries\SearchUsers\" />
     <Folder Include="Features\UserTask\Queries\SearchUserTasks\" />
   </ItemGroup>
 

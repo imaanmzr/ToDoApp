@@ -14,15 +14,10 @@ namespace ToDoApp.Domain.Entities
 		public DateTime DueDate { get; set; }
 		public bool IsCompleted { get; set; }
 		public int CategoryId { get; set; }
-		public int UserId { get; set; }
-
 
 
 		// Navigation properties
-		public Category Category { get; set; }
-		public User User { get; set; }
-
-		
+		public Category Category { get; set; }		
 
 	}
 }

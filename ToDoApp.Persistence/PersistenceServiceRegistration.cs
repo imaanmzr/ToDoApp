@@ -23,7 +23,6 @@ namespace ToDoApp.Persistence
 			//Registering repository services
 			services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 			services.AddScoped(typeof(IUserTaskRepository), typeof(UserTaskRepository));
-			services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
 			services.AddScoped(typeof(ICategoryRepository), typeof(CategoryRepository));
 
 			return services;

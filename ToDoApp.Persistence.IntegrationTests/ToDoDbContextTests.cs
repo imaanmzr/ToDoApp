@@ -27,7 +27,6 @@ namespace ToDoApp.Persistence.IntegrationTests
 				CategoryId = 1,
 				DueDate = DateTime.Now.AddDays(10),
 				IsCompleted = false,
-				UserId = 1
 			};
 
 			await toDoDbContext.UserTasks.AddAsync(userTask);
@@ -47,7 +46,6 @@ namespace ToDoApp.Persistence.IntegrationTests
 				CategoryId = 1,
 				DueDate = DateTime.Now.AddDays(10),
 				IsCompleted = false,
-				UserId = 1
 			};
 
 			await toDoDbContext.UserTasks.AddAsync(userTask);

@@ -25,7 +25,6 @@ namespace ToDoApp.Application.UnitTests.Mocks
 					DateModified = DateTime.Now,
 					DueDate = DateTime.Now.AddDays(10),
 					IsCompleted = false,
-					UserId = 1
 				},
 				new UserTask
 				{
@@ -37,7 +36,6 @@ namespace ToDoApp.Application.UnitTests.Mocks
 					DateModified = DateTime.Now,
 					DueDate = DateTime.Now.AddDays(5),
 					IsCompleted = false,
-					UserId = 1
 				},
 					new UserTask
 				{
@@ -49,7 +47,6 @@ namespace ToDoApp.Application.UnitTests.Mocks
 					DateModified = DateTime.Now,
 					DueDate = DateTime.Now.AddDays(2),
 					IsCompleted = false,
-					UserId = 1
 				}
 			};
 

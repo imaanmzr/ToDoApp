@@ -30,10 +30,10 @@ namespace ToDoApp.Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("DateCreated")
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DateModified")
+                    b.Property<DateTime?>("DateModified")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
@@ -53,60 +53,10 @@ namespace ToDoApp.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2024, 3, 29, 16, 55, 46, 775, DateTimeKind.Local).AddTicks(5278),
-                            DateModified = new DateTime(2024, 3, 29, 16, 55, 46, 775, DateTimeKind.Local).AddTicks(5288),
+                            DateCreated = new DateTime(2024, 4, 2, 21, 53, 49, 700, DateTimeKind.Local).AddTicks(1102),
+                            DateModified = new DateTime(2024, 4, 2, 21, 53, 49, 700, DateTimeKind.Local).AddTicks(1116),
                             Description = "Category",
                             Name = "Sleep"
-                        });
-                });
-
-            modelBuilder.Entity("ToDoApp.Domain.Entities.User", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateModified")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("PasswordHash")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("T_Users", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DateCreated = new DateTime(2024, 3, 29, 16, 55, 46, 775, DateTimeKind.Local).AddTicks(8120),
-                            DateModified = new DateTime(2024, 3, 29, 16, 55, 46, 775, DateTimeKind.Local).AddTicks(8122),
-                            Email = "user@user.com",
-                            FirstName = "John",
-                            LastName = "Doe",
-                            PasswordHash = "112233"
                         });
                 });
 
@@ -121,10 +71,10 @@ namespace ToDoApp.Persistence.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DateCreated")
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DateModified")
+                    b.Property<DateTime?>("DateModified")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
@@ -143,14 +93,9 @@ namespace ToDoApp.Persistence.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("T_UserTasks", (string)null);
 
@@ -159,13 +104,12 @@ namespace ToDoApp.Persistence.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            DateCreated = new DateTime(2024, 3, 29, 13, 25, 46, 776, DateTimeKind.Utc).AddTicks(306),
-                            DateModified = new DateTime(2024, 3, 29, 13, 25, 46, 776, DateTimeKind.Utc).AddTicks(303),
+                            DateCreated = new DateTime(2024, 4, 2, 18, 23, 49, 700, DateTimeKind.Utc).AddTicks(3927),
+                            DateModified = new DateTime(2024, 4, 2, 18, 23, 49, 700, DateTimeKind.Utc).AddTicks(3924),
                             Description = "Description",
-                            DueDate = new DateTime(2024, 3, 29, 13, 25, 46, 776, DateTimeKind.Utc).AddTicks(304),
+                            DueDate = new DateTime(2024, 4, 2, 18, 23, 49, 700, DateTimeKind.Utc).AddTicks(3925),
                             IsCompleted = true,
-                            Title = "Title",
-                            UserId = 1
+                            Title = "Title"
                         });
                 });
 
@@ -177,23 +121,10 @@ namespace ToDoApp.Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ToDoApp.Domain.Entities.User", "User")
-                        .WithMany("UserTasks")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.Navigation("Category");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("ToDoApp.Domain.Entities.Category", b =>
-                {
-                    b.Navigation("UserTasks");
-                });
-
-            modelBuilder.Entity("ToDoApp.Domain.Entities.User", b =>
                 {
                     b.Navigation("UserTasks");
                 });

@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ToDoApp.Application\ToDoApp.Application.csproj" />
+    <ProjectReference Include="..\ToDoApp.Identity\ToDoApp.Identity.csproj" />
     <ProjectReference Include="..\ToDoApp.Infrastructure\ToDoApp.Infrastructure.csproj" />
     <ProjectReference Include="..\ToDoApp.Persistence\ToDoApp.Persistence.csproj" />
   </ItemGroup>

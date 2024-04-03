@@ -2,6 +2,7 @@ using Microsoft.Extensions.Configuration;
 using ToDoApp.Api.Middlewares;
 using ToDoApp.Application;
 using ToDoApp.Domain.Contracts.Repositories;
+using ToDoApp.Identity;
 using ToDoApp.Infrastructure;
 using ToDoApp.Persistence;
 using ToDoApp.Persistence.DatabaseContext;
@@ -13,6 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddPersistenceServices(builder.Configuration);
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddApplicationServices();
+builder.Services.AddIdentityServices(builder.Configuration);
 
 
 builder.Services.AddCors(options =>
@@ -42,6 +44,8 @@ if (app.Environment.IsDevelopment())
 app.UseCors("all");
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
