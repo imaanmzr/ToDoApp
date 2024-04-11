@@ -1,0 +1,16 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<h1 class="text-center">Just for today!</h1>
+
+<AuthorizeView>
+	<Authorized>
+		<button class="btn btn-danger" @onclick="Logout">Logout</button>
+	</Authorized>
+	<NotAuthorized>
+		<button class="btn btn-danger" @onclick="GoToLogin">Login</button> ||
+		<button class="btn btn-danger" @onclick="GoToRegister">Register</button>
+
+	</NotAuthorized>
+</AuthorizeView>

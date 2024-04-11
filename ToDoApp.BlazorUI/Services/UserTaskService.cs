@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Blazored.LocalStorage;
 using ToDoApp.BlazorUI.Contracts;
 using ToDoApp.BlazorUI.Models.UserTasks;
 using ToDoApp.BlazorUI.Services.Base;
@@ -9,7 +10,9 @@ namespace ToDoApp.BlazorUI.Services
 	{
 		private readonly IMapper mapper;
 
-		public UserTaskService(IClient client, IMapper mapper) : base(client)
+		public UserTaskService(IClient client,
+							   IMapper mapper,
+							   ILocalStorageService localStorageService) : base(client, localStorageService)
 		{
 			this.mapper = mapper;
 		}
@@ -18,6 +21,7 @@ namespace ToDoApp.BlazorUI.Services
 		{
 			try
 			{
+				await AddBearerToken();
 				var createUserTaskCommand = mapper.Map<CreateUserTaskCommand>(userTask);
 				await _client.UserTasksPOSTAsync(createUserTaskCommand);
 				return new Response<Guid>()
@@ -35,6 +39,7 @@ namespace ToDoApp.BlazorUI.Services
 		{
 			try
 			{
+				await AddBearerToken();
 				await _client.UserTasksDELETEAsync(id);
 				return new Response<Guid>()
 				{
@@ -49,6 +54,7 @@ namespace ToDoApp.BlazorUI.Services
 
 		public async Task<List<UserTaskViewModel>> GetAllUserTasks()
 		{
+			await AddBearerToken();
 			var userTasks = await _client.UserTasksAllAsync();
 
 			return mapper.Map<List<UserTaskViewModel>>(userTasks);
@@ -56,16 +62,17 @@ namespace ToDoApp.BlazorUI.Services
 
 		public async Task<UserTaskViewModel> GetUserTaskById(int id)
 		{
+			await AddBearerToken();
 			var userTask = await _client.UserTasksGETAsync(id);
 
 			return mapper.Map<UserTaskViewModel>(userTask);
-
 		}
 
 		public async Task<Response<Guid>> UpdateUserTask(int id, UserTaskViewModel userTask)
 		{
 			try
 			{
+				await AddBearerToken();
 				var updateUserTaskCommand = mapper.Map<UpdateUserTaskCommand>(userTask);
 				await _client.UserTasksPUTAsync(id.ToString(), updateUserTaskCommand);
 				return new Response<Guid>()

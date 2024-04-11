@@ -12,7 +12,7 @@ using ToDoApp.Identity.Models;
 using ToDoApp.Identity.Services;
 
 namespace ToDoApp.Identity
-{
+{ 
 	public static class IdentityServiceRegistration
 	{
 		public static IServiceCollection AddIdentityServices(this IServiceCollection services, IConfiguration configuration)

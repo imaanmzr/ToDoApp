@@ -31,7 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoApp.Persistence.Integra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoApp.BlazorUI", "ToDoApp.BlazorUI\ToDoApp.BlazorUI.csproj", "{4AFFD88E-F6BA-4F40-B6C5-E806960F5122}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.Identity", "ToDoApp.Identity\ToDoApp.Identity.csproj", "{ABFF71BA-60BD-4109-8777-3B08B6417C16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoApp.Identity", "ToDoApp.Identity\ToDoApp.Identity.csproj", "{ABFF71BA-60BD-4109-8777-3B08B6417C16}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

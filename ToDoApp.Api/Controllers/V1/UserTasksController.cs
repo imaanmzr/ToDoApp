@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ToDoApp.Application.Features.UserTask.Commands.CreateTask;
@@ -12,6 +13,7 @@ namespace ToDoApp.Api.Controllers.V1
 {
 	[Route("api/[controller]")]
 	[ApiController]
+	[Authorize]
 	public class UserTasksController : ControllerBase
 	{
 		private readonly IMediator mediator;
